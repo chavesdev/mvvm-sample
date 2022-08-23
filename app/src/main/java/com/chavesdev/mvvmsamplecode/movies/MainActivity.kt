@@ -1,4 +1,4 @@
-package com.chavesdev.mvvmsamplecode.products
+package com.chavesdev.mvvmsamplecode.movies
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
