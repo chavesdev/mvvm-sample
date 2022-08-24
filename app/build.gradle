@@ -14,6 +14,9 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
     }
 
     buildTypes {
@@ -29,15 +32,30 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.2.0-rc01"
+    }
+
+    buildFeatures {
+        compose true
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
 }
 
 dependencies {
     def retrofitVersion = '2.9.0'
     def okHttpVersion = "4.9.0"
     def koinVersion = "3.2.0"
+    def jetPackComposeVersion = "1.2.1"
+    def navigationVersion = "2.5.1"
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.appcompat:appcompat:1.5.0'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
@@ -52,14 +70,27 @@ dependencies {
     //Koin
     implementation "io.insert-koin:koin-android:$koinVersion"
 
+    //JetPack compose
+    implementation "androidx.compose.ui:ui:$jetPackComposeVersion"
+    implementation "androidx.compose.ui:ui-tooling:$jetPackComposeVersion"
+    implementation "androidx.compose.foundation:foundation:$jetPackComposeVersion"
+    implementation "androidx.compose.material:material:$jetPackComposeVersion"
+    implementation "androidx.compose.runtime:runtime-livedata:$jetPackComposeVersion"
+    implementation "androidx.compose.ui:ui-tooling-preview:$jetPackComposeVersion"
+
+    //Navigation
+    implementation "androidx.navigation:navigation-runtime-ktx:$navigationVersion"
+    implementation "androidx.navigation:navigation-compose:$navigationVersion"
+
     testImplementation 'junit:junit:4.13.2'
     testImplementation "io.mockk:mockk:1.11.0"
     testImplementation 'android.arch.core:core-testing:1.1.1'
-    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.3"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1"
     // Koin Test
     testImplementation "io.insert-koin:koin-test:$koinVersion"
     testImplementation "io.insert-koin:koin-test-junit4:$koinVersion"
 
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:$jetPackComposeVersion")
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }

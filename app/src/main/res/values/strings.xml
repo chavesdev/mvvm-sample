@@ -2,4 +2,6 @@
     <string name="app_name">MVVM Sample Code</string>
     <string name="base_url">https://api.themoviedb.org/3/</string>
     <string name="base_img_url">https://image.tmdb.org/t/p/w780/</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="api_token">eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiMmI1ZTJhNWJiYzFmOWQ3MGI3ZWUyNDZiMGU3YzhlYyIsInN1YiI6IjVkMTEwMTZhMGUwYTI2NDFhNWNhYmJhZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7ePpyIwYohl7eGDXPr0T6PXGBxWR5q_eXLD3UOaqB08</string>
 </resources>
