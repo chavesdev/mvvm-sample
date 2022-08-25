@@ -14,6 +14,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.chavesdev.mvvmsamplecode.movies.core.presentation.Screen
+import com.chavesdev.mvvmsamplecode.movies.details.presentation.ui.MovieDetailScreen
 import com.chavesdev.mvvmsamplecode.movies.popular.presentation.ui.PopularMovieListScreen
 import com.chavesdev.mvvmsamplecode.movies.popular.presentation.viewmodel.MoviesListViewModel
 import com.chavesdev.mvvmsamplecode.ui.theme.MVVMSampleCodeTheme
@@ -27,7 +28,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MVVMSampleCodeTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
@@ -39,12 +39,21 @@ class MainActivity : ComponentActivity() {
                     ) {
 
                         composable(
-                            route = Screen.MovieListScreen.route
+                            Screen.MovieListScreen.route
                         ) {
                             PopularMovieListScreen(navController = navController, moviesListViewModel)
                         }
 
-                        //Add Movie detail screen here
+                        composable(
+                            Screen.MovieDetailScreen.route +"/{movieId}"
+                        ){ backStackEntry ->
+                            backStackEntry.arguments?.getString("movieId")?.let { movieId ->
+                                backStackEntry.savedStateHandle["movieId"] = movieId
+                                MovieDetailScreen(backStackEntry.savedStateHandle)
+                            }
+
+                        }
+
                     }
                 }
             }

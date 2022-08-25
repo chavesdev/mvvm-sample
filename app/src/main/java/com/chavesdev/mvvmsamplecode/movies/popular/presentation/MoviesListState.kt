@@ -1,4 +1,4 @@
-package com.chavesdev.mvvmsamplecode.movies.popular.presentation.ui
+package com.chavesdev.mvvmsamplecode.movies.popular.presentation
 
 import com.chavesdev.mvvmsamplecode.movies.core.domain.model.Movie
 

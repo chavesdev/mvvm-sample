@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MVVM Sample Code</string>
+    <string name="app_name">My Movie App</string>
     <string name="base_url">https://api.themoviedb.org/3/</string>
     <string name="base_poster_img_url">https://image.tmdb.org/t/p/w500/</string>
     <string name="base_backdrop_img_url">https://image.tmdb.org/t/p/w780/</string>

@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.chavesdev.mvvmsamplecode.movies.core.domain.usecases.GetPopularMoviesUseCase
 import com.chavesdev.mvvmsamplecode.movies.core.util.ResponseState
-import com.chavesdev.mvvmsamplecode.movies.popular.presentation.ui.MoviesListState
+import com.chavesdev.mvvmsamplecode.movies.popular.presentation.MoviesListState
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
