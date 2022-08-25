@@ -82,6 +82,9 @@ dependencies {
     implementation "androidx.navigation:navigation-runtime-ktx:$navigationVersion"
     implementation "androidx.navigation:navigation-compose:$navigationVersion"
 
+    //Picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
     testImplementation 'junit:junit:4.13.2'
     testImplementation "io.mockk:mockk:1.11.0"
     testImplementation 'android.arch.core:core-testing:1.1.1'

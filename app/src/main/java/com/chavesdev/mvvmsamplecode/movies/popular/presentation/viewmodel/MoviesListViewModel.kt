@@ -24,7 +24,8 @@ class MoviesListViewModel(
         getPopularMovies()
     }
 
-    fun getPopularMovies() {
+    private fun getPopularMovies() {
+        _moviesListState.value = MoviesListState(isLoading = true)
         viewModelScope.launch(dispatcher) {
             when (val response = getPopularMoviesUseCase()) {
                 is ResponseState.Success -> {
@@ -32,14 +33,13 @@ class MoviesListViewModel(
                     _moviesListState.value =
                         MoviesListState(movies = moviesPage?.results ?: emptyList())
                 }
-                is ResponseState.Loading -> {
-                    _moviesListState.value = MoviesListState(isLoading = true)
-                }
                 is ResponseState.Error -> {
                     _moviesListState.value = MoviesListState(
                         error = response.message ?: "An unexpected error ocurred"
                     )
                 }
+
+                else -> {}
             }
         }
     }
