@@ -19,29 +19,32 @@ import androidx.navigation.NavController
 import com.chavesdev.mvvmsamplecode.movies.core.presentation.Screen
 import com.chavesdev.mvvmsamplecode.movies.popular.presentation.ui.components.MovieListItem
 import com.chavesdev.mvvmsamplecode.movies.popular.presentation.viewmodel.MoviesListViewModel
+import org.koin.androidx.compose.getViewModel
 
 @Composable
 fun PopularMovieListScreen(
     navController: NavController,
-    moviesListViewModel: MoviesListViewModel
+    moviesListViewModel: MoviesListViewModel = getViewModel()
 ) {
     val state = moviesListViewModel.moviesListState.value
     val lazyGridState = rememberLazyGridState()
+    val columnCount = 2
 
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
 
         LazyVerticalGrid(
-            columns = GridCells.Fixed(3),
+            columns = GridCells.Fixed(columnCount),
             modifier = Modifier.fillMaxSize(),
             state = lazyGridState,
         ) {
-            item(span = {GridItemSpan(3)}) {
+            item(span = { GridItemSpan(columnCount) }) {
                 Text(
                     text = "Popular Movies",
                     style = MaterialTheme.typography.h6,
-                    modifier = Modifier.padding(20.dp))
+                    modifier = Modifier.padding(20.dp)
+                )
             }
 
             items(items = state.movies) { movie ->
