@@ -6,6 +6,7 @@ import com.chavesdev.mvvmsamplecode.movies.core.domain.usecases.GetMovieDetailsU
 import com.chavesdev.mvvmsamplecode.movies.core.domain.usecases.GetPopularMoviesUseCase
 import com.chavesdev.mvvmsamplecode.movies.details.presentation.viewmodel.MovieDetailViewModel
 import com.chavesdev.mvvmsamplecode.movies.popular.presentation.viewmodel.MoviesListViewModel
+import com.squareup.picasso.Picasso
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.dsl.bind
 import org.koin.core.module.dsl.factoryOf
@@ -17,6 +18,8 @@ val appModule = module {
 
     factoryOf(::GetPopularMoviesUseCase)
     factoryOf(::GetMovieDetailsUseCase)
+
+    single<Picasso> { Picasso.get() }
 
     viewModel { MoviesListViewModel(get()) }
     viewModel { params ->

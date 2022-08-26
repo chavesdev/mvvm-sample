@@ -28,7 +28,7 @@ fun PopularMovieListScreen(
 ) {
     val state = moviesListViewModel.moviesListState.value
     val lazyGridState = rememberLazyGridState()
-    val columnCount = 2
+    val columnCount = 3
 
     Box(
         modifier = Modifier.fillMaxSize()
