@@ -2,6 +2,7 @@ package com.chavesdev.mvvmsamplecode.movies.core.domain.usecases
 
 import android.arch.core.executor.testing.InstantTaskExecutorRule
 import com.chavesdev.mvvmsamplecode.movies.core.domain.model.MovieDetail
+import com.chavesdev.mvvmsamplecode.movies.core.domain.model.releaseYear
 import com.chavesdev.mvvmsamplecode.movies.core.domain.repo.MoviesRepository
 import com.chavesdev.mvvmsamplecode.movies.core.util.ResponseState
 import io.mockk.coEvery
@@ -37,11 +38,13 @@ internal class GetMovieDetailsUseCaseTest {
     @Test
     fun `check success state`() = runBlockingTest {
         every { movieDetail.adult } returns true
+        every { movieDetail.releaseDate } returns "2022-01-01"
         coEvery { movieRepository.getMovieDetails(any()) }.returns(movieDetail)
         val state = getMovieDetailsUseCase.invoke(1)
         assert(state is ResponseState.Success<MovieDetail>)
         val movieDetail = state.data
         assert(movieDetail?.adult ?: false)
+        assert(movieDetail?.releaseYear() == "2022")
     }
 
     @Test

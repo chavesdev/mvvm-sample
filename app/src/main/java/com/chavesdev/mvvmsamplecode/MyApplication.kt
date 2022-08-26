@@ -3,6 +3,7 @@ package com.chavesdev.mvvmsamplecode
 import android.app.Application
 import com.chavesdev.mvvmsamplecode.movies.core.di.apiModule
 import com.chavesdev.mvvmsamplecode.movies.core.di.appModule
+import com.chavesdev.mvvmsamplecode.movies.core.di.picassoModule
 import com.chavesdev.mvvmsamplecode.movies.core.di.retrofitModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -15,7 +16,7 @@ class MyApplication : Application() {
             androidLogger()
             androidContext(this@MyApplication)
             modules(
-                listOf(retrofitModule, apiModule, appModule)
+                listOf(retrofitModule, apiModule, picassoModule, appModule)
             )
         }
     }
