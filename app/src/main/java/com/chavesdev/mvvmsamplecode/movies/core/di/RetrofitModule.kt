@@ -1,6 +1,5 @@
 package com.chavesdev.mvvmsamplecode.movies.core.di
 
-import android.content.Context
 import com.chavesdev.mvvmsamplecode.BuildConfig
 import com.chavesdev.mvvmsamplecode.R
 import com.chavesdev.mvvmsamplecode.movies.core.util.BearerInterceptor
@@ -15,7 +14,7 @@ val retrofitModule = module {
 
     single<OkHttpClient> {
         OkHttpClient.Builder()
-            .addInterceptor(provideBearerInterceptor(get()))
+            .addInterceptor(provideBearerInterceptor())
             .addInterceptor(provideHttpLoggingInterceptor())
             .build()
     }
@@ -44,6 +43,6 @@ fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
     return httpLoggingInterceptor
 }
 
-fun provideBearerInterceptor(context: Context): BearerInterceptor {
-    return BearerInterceptor(context)
+fun provideBearerInterceptor(): BearerInterceptor {
+    return BearerInterceptor()
 }
