@@ -29,7 +29,10 @@ fun MovieListItem(movie: Movie, onItemClick: (Movie) -> Unit) {
         MoviePoster(
             posterPath = movie.posterPath,
             contentDescription = movie.title,
-            modifier = Modifier.clip(RoundedCornerShape(6.dp))
+            modifier = Modifier
+                .height(150.dp)
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(8.dp))
         )
     }
 }
