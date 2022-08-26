@@ -4,22 +4,16 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.chavesdev.mvvmsamplecode.movies.core.presentation.Screen
 import com.chavesdev.mvvmsamplecode.movies.details.presentation.ui.MovieDetailScreen
 import com.chavesdev.mvvmsamplecode.movies.popular.presentation.ui.PopularMovieListScreen
-import com.chavesdev.mvvmsamplecode.movies.popular.presentation.viewmodel.MoviesListViewModel
 import com.chavesdev.mvvmsamplecode.ui.theme.MVVMSampleCodeTheme
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : ComponentActivity() {
 

@@ -45,7 +45,7 @@ fun MovieDetailScreen(
                 item {
 
                     ConstraintLayout {
-                        val (backDrop, poster, title, middleRow, titleOverview, overview) = createRefs()
+                        val (poster, title, middleRow, titleOverview, overview) = createRefs()
 
                         MovieBackdropImage(
                             posterPath = movie.backdropPath,

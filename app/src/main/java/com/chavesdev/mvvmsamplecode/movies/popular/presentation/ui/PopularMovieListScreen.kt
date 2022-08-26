@@ -12,10 +12,12 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.chavesdev.mvvmsamplecode.R
 import com.chavesdev.mvvmsamplecode.movies.core.presentation.Screen
 import com.chavesdev.mvvmsamplecode.movies.popular.presentation.ui.components.MovieListItem
 import com.chavesdev.mvvmsamplecode.movies.popular.presentation.viewmodel.MoviesListViewModel
@@ -41,7 +43,7 @@ fun PopularMovieListScreen(
         ) {
             item(span = { GridItemSpan(columnCount) }) {
                 Text(
-                    text = "Popular Movies",
+                    text = stringResource(R.string.title_popular_movies),
                     style = MaterialTheme.typography.h6,
                     modifier = Modifier.padding(20.dp)
                 )
